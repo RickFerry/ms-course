@@ -19,6 +19,16 @@
             "projectName": "hr-payroll",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrEurekaServerApplication<hr-eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.example.study.HrEurekaServerApplication",
+            "projectName": "hr-eureka-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
