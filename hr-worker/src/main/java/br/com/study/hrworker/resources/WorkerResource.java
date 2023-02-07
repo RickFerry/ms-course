@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.study.hrworker.entities.Worker;
 import br.com.study.hrworker.repositories.WorkerRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RestController
