@@ -1,4 +1,4 @@
-package br.com.example.study;
+package br.com.study.hreurekaserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
