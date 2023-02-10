@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.study.hrworker.entities.Worker;
 import br.com.study.hrworker.repositories.WorkerRepository;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RefreshScope
@@ -25,9 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class WorkerResource {
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 
-    @NonNull
     private final WorkerRepository workerRepository;
-    @NonNull
     private final Environment env;
     
     @Value("${test.config}")
