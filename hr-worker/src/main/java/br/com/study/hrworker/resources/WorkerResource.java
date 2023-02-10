@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.study.hrworker.entities.Worker;
 import br.com.study.hrworker.repositories.WorkerRepository;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RefreshScope
@@ -22,14 +23,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/workers")
 public class WorkerResource {
-
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
-    private final WorkerRepository workerRepository;
-    private final Environment env;
 
+    @NonNull
+    private final WorkerRepository workerRepository;
+    @NonNull
+    private final Environment env;
+    
     @Value("${test.config}")
     private String testConfig;
-
+    
     @GetMapping("/configs")
     public ResponseEntity<List<Void>> getConfigs() {
         logger.info("CONFIG= " + testConfig);
