@@ -24,34 +24,30 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/workers")
 public class WorkerResource {
 
-    @NonNull
-    private WorkerRepository workerRepository;
+	@NonNull
+	private WorkerRepository workerRepository;
 
-    @NonNull
-    private Environment env;
+	@NonNull
+	private Environment env;
 
-    @Value("${test.config}")
-    private String testConfig;
+	@Value("${test.config}")
+	private String testConfig;
 
-    @GetMapping("/configs")
-    public ResponseEntity<List<Void>> getConfigs() {
-        log.info("CONFIG= " + testConfig);
-        return ResponseEntity.noContent().build();
-    }
+	@GetMapping("/configs")
+	public ResponseEntity<List<Void>> getConfigs() {
+		log.info("CONFIG= " + testConfig);
+		return ResponseEntity.noContent().build();
+	}
 
-    @GetMapping
-    public ResponseEntity<List<Worker>> findAllWorkers() {
-        return ResponseEntity.ok(workerRepository.findAll());
-    }
+	@GetMapping
+	public ResponseEntity<List<Worker>> findAllWorkers() {
+		return ResponseEntity.ok(workerRepository.findAll());
+	}
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Worker> findWorker(@PathVariable Long id) throws Exception {
-        log.info("PORT= " + env.getProperty("local.server.port"));
-        return ResponseEntity
-                .ok(workerRepository
-                .findById(id)
-                .orElseThrow(
-                    () -> new Exception("Worker id " + id + " not found.")
-                ));
-    }
+	@GetMapping("/{id}")
+	public ResponseEntity<Worker> findWorker(@PathVariable Long id) throws Exception {
+		log.info("PORT= " + env.getProperty("local.server.port"));
+		return ResponseEntity
+				.ok(workerRepository.findById(id).orElseThrow(() -> new Exception("Worker id " + id + " not found.")));
+	}
 }

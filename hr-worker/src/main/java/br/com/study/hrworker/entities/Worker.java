@@ -20,8 +20,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "tb_worker")
 public class Worker implements Serializable{
-    
-    @Id
+	private static final long serialVersionUID = -7365370528713154487L;
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;

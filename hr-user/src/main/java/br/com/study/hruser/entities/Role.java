@@ -20,8 +20,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "tb_role")
 public class Role implements Serializable{
-
-    @Id
+	private static final long serialVersionUID = 2375915958439004025L;
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String roleName;

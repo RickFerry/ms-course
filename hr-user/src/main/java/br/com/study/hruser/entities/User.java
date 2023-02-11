@@ -28,8 +28,9 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Table(name = "tb_user")
 public class User implements Serializable {
-
-    @Id
+	private static final long serialVersionUID = 439311252199146583L;
+	
+	@Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
