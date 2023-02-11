@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.type.TrueFalseType;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,10 +37,14 @@ public class User implements Serializable {
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @NonNull
     private String name;
+    
     @NonNull
+    @Column(unique = true)
     private String email;
+    
     @NonNull
     private String password;
 
