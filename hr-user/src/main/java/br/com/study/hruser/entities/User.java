@@ -34,7 +34,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
-    private String nome;
+    private String name;
     @NonNull
     private String email;
     @NonNull

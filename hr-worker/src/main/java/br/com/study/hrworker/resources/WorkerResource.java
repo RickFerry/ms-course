@@ -2,8 +2,6 @@ package br.com.study.hrworker.resources;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
@@ -17,26 +15,27 @@ import br.com.study.hrworker.entities.Worker;
 import br.com.study.hrworker.repositories.WorkerRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RefreshScope
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/workers")
 public class WorkerResource {
-    private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 
     @NonNull
     private WorkerRepository workerRepository;
-    
+
     @NonNull
     private Environment env;
-    
+
     @Value("${test.config}")
     private String testConfig;
-    
+
     @GetMapping("/configs")
     public ResponseEntity<List<Void>> getConfigs() {
-        logger.info("CONFIG= " + testConfig);
+        log.info("CONFIG= " + testConfig);
         return ResponseEntity.noContent().build();
     }
 
@@ -46,8 +45,13 @@ public class WorkerResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Worker> findWorker(@PathVariable Long id) {
-        logger.info("PORT= " + env.getProperty("local.server.port"));
-        return ResponseEntity.ok(workerRepository.findById(id).orElse(null));
+    public ResponseEntity<Worker> findWorker(@PathVariable Long id) throws Exception {
+        log.info("PORT= " + env.getProperty("local.server.port"));
+        return ResponseEntity
+                .ok(workerRepository
+                .findById(id)
+                .orElseThrow(
+                    () -> new Exception("Worker id " + id + " not found.")
+                ));
     }
 }
