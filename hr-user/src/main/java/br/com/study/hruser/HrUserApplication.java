@@ -1,4 +1,4 @@
-package br.com.study.hruser.hruser;
+package br.com.study.hruser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,5 +11,4 @@ public class HrUserApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HrUserApplication.class, args);
 	}
-
 }

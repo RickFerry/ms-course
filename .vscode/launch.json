@@ -59,6 +59,16 @@
             "projectName": "hr-config-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrUserApplication<hr-user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.study.hruser.HrUserApplication",
+            "projectName": "hr-user",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
