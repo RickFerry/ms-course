@@ -1,5 +1,8 @@
 package br.com.study.hroauth.services;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.study.hroauth.entities.User;
@@ -11,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService{
 
     @NonNull
     private UserFeignClient userFeignClient;
@@ -22,5 +25,14 @@ public class UserService {
         }
         log.info("Email: " + email + " found!");
         return userFeignClient.findByEmail(email).getBody();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        if (userFeignClient.findByEmail(userName).getBody() == null) {
+            throw new UsernameNotFoundException("Email not found!");
+        }
+        log.info("Email: " + userName + " found!");
+        return userFeignClient.findByEmail(userName).getBody();
     }
 }
