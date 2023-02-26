@@ -38,7 +38,8 @@
             "mainClass": "br.com.study.hreurekaserver.HrEurekaServerApplication",
             "projectName": "hr-eureka-server",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51968 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=hr-eureka-server"
         },
         {
             "type": "java",
@@ -48,7 +49,8 @@
             "mainClass": "br.com.study.hrapigatewayzuul.hrapigatewayzuul.HrApiGatewayZuulApplication",
             "projectName": "hr-api-gateway-zuul",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51978 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=hr-api-gateway-zuul"
         },
         {
             "type": "java",
@@ -67,6 +69,17 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "br.com.study.hruser.HrUserApplication",
             "projectName": "hr-user",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51990 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=hr-user"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HrOauthApplication<hr-oauth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.study.hroauth.HrOauthApplication",
+            "projectName": "hr-oauth",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
