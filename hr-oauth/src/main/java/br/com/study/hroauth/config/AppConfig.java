@@ -27,9 +27,4 @@ public class AppConfig {
     JwtTokenStore jwtTokenStore() {
         return new JwtTokenStore(accessTokenConverter());
     }
-
-    @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
 }
